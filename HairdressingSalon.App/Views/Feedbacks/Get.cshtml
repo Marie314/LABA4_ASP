@@ -1,0 +1,33 @@
+﻿@model List<Feedback>
+
+@{
+    ViewData["Title"] = "Feedbacks";
+}
+
+<h2>Feedbacks</h2>
+
+<a class="home-btn" href="/Home/Index">Home</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Client</th>
+            <th>Mark</th>
+            <th>Text</th>
+            <th>Date & Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var feedback in @Model)
+        {
+            <tr>
+                <td>@feedback.Id</td>
+                <td>@feedback.Order.Client.Surname @feedback.Order.Client.Name @feedback.Order.Client.MiddleName</td>
+                <td>@feedback.Mark</td>
+                <td>@feedback.Text</td>
+                <td>@feedback.DateTime</td>
+            </tr>
+        }
+    </tbody>
+</table>

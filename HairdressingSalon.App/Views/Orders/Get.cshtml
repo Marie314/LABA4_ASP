@@ -1,0 +1,31 @@
+﻿@model List<Order>
+
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<h2>Orders</h2>
+
+<a class="home-btn" href="/Home/Index">Home</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Date & Time</th>
+            <th>Client</th>
+            <th>Worker</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in @Model)
+        {
+            <tr>
+                <td>@order.Id</td>
+                <td>@order.DateTime</td>
+                <td>@order.Client.Surname @order.Client.Name @order.Client.MiddleName</td>
+                <td>@order.Worker.Surname @order.Worker.Name @order.Worker.MiddleName</td>
+            </tr>
+        }
+    </tbody>
+</table>

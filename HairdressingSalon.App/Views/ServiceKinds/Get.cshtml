@@ -1,0 +1,31 @@
+﻿@model List<ServiceKind>
+
+@{
+    ViewData["Title"] = "Service Kinds";
+}
+
+<h2>Service Kinds</h2>
+
+<a class="home-btn" href="/Home/Index">Home</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var serviceKind in @Model)
+        {
+            <tr>
+                <td>@serviceKind.Id</td>
+                <td>@serviceKind.Name</td>
+                <td>@serviceKind.Description</td>
+                <td><img src="@serviceKind.ImageUrl" alt="@serviceKind.Name"/></td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,35 @@
+﻿@model List<Service>
+
+@{
+    ViewData["Title"] = "Services";
+}
+
+<h2>Services</h2>
+
+<a class="home-btn" href="/Home/Index">Home</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Price</th>
+            <th>Date & Time</th>
+            <th>Client</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var service in @Model)
+        {
+            <tr>
+                <td>@service.Id</td>
+                <td>@service.ServiceKind.Name</td>
+                <td>@service.Code</td>
+                <td>@service.Price$</td>
+                <td>@service.Order.DateTime</td>
+                <td>@service.Order.Client.Surname @service.Order.Client.Name @service.Order.Client.MiddleName</td>
+            </tr>
+        }
+    </tbody>
+</table>
